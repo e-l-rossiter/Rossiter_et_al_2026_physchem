@@ -97,5 +97,18 @@ The final data frame is then used to assign compounds into:
 - Group 2
 - Group 3
 - No group
-- 
+  
 These groups are based on hydrophilicity, eNTRY rule status and charge state at pH 7.4. Finally, the script creates separate tables for pollutants and antibiotics in each group, checks the compounds assigned to each group, and saves the final physicochemical-property table as an Excel file.
+
+**Script 4**
+
+This script uses the final physicochemical information table created in Script 3 and adds chemical classification information from ClassyFire.
+
+PubChem is searched using the webchem package to retrieve the InChIKey for each compound from its CID.
+
+The InChIKeys are then used with the classyfireR package to retrieve chemical classifications from ClassyFire. The classification levels extracted are:
+
+ - kingdom
+ - superclass
+ - class
+ - subclass
