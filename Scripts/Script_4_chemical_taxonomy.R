@@ -6,7 +6,7 @@
 # Purpose:
 #
 # This script uses the final physicochemical information table created in
-# Data Wrangling pt. 3 and adds chemical classification information from
+# Script 3 and adds chemical classification information from
 # ClassyFire.
 #
 # The script first reads in the final antibiotic and pollutant physicochemical
