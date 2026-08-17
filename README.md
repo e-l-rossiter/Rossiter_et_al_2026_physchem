@@ -3,6 +3,40 @@ Code and analysis for: Rossiter et al. unpublished: A novel approach to identify
 
 This repository contains the final datasets, analyses and figures of the above-mentioned paper.  It can recreate all figures and tables in both the main text and the supplementary files.  
 
+In the file "Files" you will find the following subfolders:
+- Downloaded_files
+- Files_for_coding
+- Files_for_uploading
+- PCA_PERMANOVA_NO_MW_Figs
+- PCA_PERMANOVA_NO_MW_Results
+- PCA_PERMANOVA_W_MW_Figs
+- PCA_PERMANOVA_W_MW_Results
+- Tables
+
+**Downloaded_files**
+This file contains the csv file for the downloaded results from eNTRyway.org  and the SDF file or the downloaded results from Chemicalize. 
+
+**Files_for_coding**
+This file contains....
+
+**Files_for_uploading**
+This file contains....
+
+**PCA_PERMANOVA_NO_MW_Figs**
+This file contains....
+
+**PCA_PERMANOVA_NO_MW_Results**
+This file contains....
+
+**PCA_PERMANOVA_W_MW_Figs**
+This file contains....
+
+**PCA_PERMANOVA_W_MW_Results**
+This file contains....
+
+**Tables**
+This file contains....
+
 In the file "Scripts" you will find the R Scripts used in this paper. 
 
 You will need to run each script in order. 
