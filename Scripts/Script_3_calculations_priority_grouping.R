@@ -12,7 +12,7 @@
 # The script calculates additional physicochemical variables needed for the
 # analysis, including:
 #
-# - interpolated logD values at  7.4, 7.5 and 8.5
+# - interpolated logD values at  7.4
 # - relative polar surface area
 # - hydrophilic compound status
 # - low globularity status
@@ -114,7 +114,6 @@ joined_df_2 <- joined_df
 # Therefore, logD at pH 7.4 was calculated by linear interpolation between
 # logD at pH 7 and logD at pH 8.
 #
-# Additional interpolated values were also calculated for pH 6.5, 7.5 and 8.5.
 
 # Convert the relevant logD columns to numeric before interpolation.
 logD6 <- as.numeric(joined_df_2[["logd_ph6"]])
