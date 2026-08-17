@@ -45,12 +45,7 @@ includes:
  - compounds with molecular weight greater than 600 g/mol
    
 This is because we are only interested in compounds that are <= 600 Da.
-600 Da is exactly equivalent to 600 g/mol. Finally, the PubChem information is saved into one Excel workbook with three
-sheets:
-
-- All_comps: all compounds with PubChem information
-- Comps_less_or_equal_600_g_mol: compounds with MW <= 600 g/mol
- - Comps_greater_than_600_g_mol: compounds with MW > 600 g/mol
+600 Da is exactly equivalent to 600 g/mol.
 
 These outputs are used later for bulk upload to Chemicalize.com, to calculate physicochemical properties using the SMILES strings in the web-based application.
 
@@ -97,8 +92,7 @@ The final data frame is then used to assign compounds into:
 - Group 2
 - Group 3
 - No group
-  
-These groups are based on hydrophilicity, eNTRY rule status and charge state at pH 7.4. Finally, the script creates separate tables for pollutants and antibiotics in each group, checks the compounds assigned to each group, and saves the final physicochemical-property table as an Excel file.
+ 
 
 **Script 4**
 
@@ -112,3 +106,65 @@ The InChIKeys are then used with the classyfireR package to retrieve chemical cl
  - superclass
  - class
  - subclass
+
+Script 5
+ 
+Purpose: Create Supplementary file 2
+
+This script reads in the individual Supplementary Table S2 files created during data wrangling and combines them into one Excel workbook called Supplementary_file_2.xlsx.
+
+The workbook contains:
+
+- Table S2.1: PubChem downloads
+- Table S2.2: Chemicalize batch output
+- Table S2.3: Chemical taxonomy
+- Table S2.4: Predominant charge
+- Table S2.5: eNTRYway batch output
+- Table S2.6: Ionisable nitrogen check
+- Table S2.7: All antibiotics
+- Table S2.8: All pollutants
+
+
+**Script 6**
+**pt 1. PCA of 8 physicochemical properties excluding molecular weight**
+
+Purpose:
+PCA using eight physicochemical properties, excluding molecular weight. 
+
+The eight physicochemical properties used in the PCA are:
+
+- cLogP
+- cLogD at pH 7.4
+- relative polar surface area
+- hydrogen bond donor count
+- hydrogen bond acceptor count
+- net charge at pH 7.4
+- rotatable bond count
+- globularity score
+
+pt 1. of this script created figures from the main text and supplementary files relating to PCA with 8 physicochemical
+
+**pt. 2 PERMANOVA of 8 physicochemical properties excluding molecular weight**
+
+The aim of this script is to test whether antibiotics and pollutants differ  in multivariate physicochemical-property space using PERMANOVA. A combined grouping variable is then created, called Group_type, which combines compound priority group and compound type. For example:
+
+ - Group_1_pollutant
+ - Group_1_antibiotic
+ - Group_2_pollutant
+ - Group_2_antibiotic
+ - Group_3_pollutant
+ - Group_3_antibiotic
+ - NG_pollutant
+ - NG_antibiotic
+
+ The physicochemical variables are scaled and centred so that all properties contribute on comparable scales.
+
+Euclidean distances are then calculated using the scaled physicochemical variables.
+
+Before interpreting PERMANOVA, permutation-based tests of multivariate dispersion are carried out using betadisper and permutest. This checks whether significant PERMANOVA results could be influenced by differences in group dispersion rather than differences in group centroids.
+
+Pairwise betadisper tests are then run for selected group comparisons, and
+adjusted p-values are calculated using the Benjamini-Hochberg method.
+
+**Script 7**
+The exact same as script 6 but with 9 physicochemical properties, as it includes molecular weight. 
